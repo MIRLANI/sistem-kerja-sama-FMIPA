@@ -1019,8 +1019,8 @@ section {
 }
 
 .services .icon-box .lihat-data:hover{
- 
-  background-color: #205ea4 ;
+
+  background-color: #CF5331 ;
 
 }
 
@@ -1802,7 +1802,7 @@ section {
 --------------------------------------------------------------*/
 #footer {
   font-size: 14px;
-  background: #37517e;
+  background: #8F0317;
 }
 
 #footer .footer-newsletter {
@@ -1960,7 +1960,8 @@ section {
 }
 
 #footer .copyright {
-  float: left;
+  /* float: left; */
+  text-align: center;
 }
 
 #footer .credits {

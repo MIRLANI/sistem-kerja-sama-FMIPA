@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafik Batang Per Tahun</title>
+    <style>
+        #grafik-container {
+            width: 600px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Grafik Distribusi Dokumen Kerjasama per Lima Tahun</h1>
+
+    <div id="grafik-container">
+        <canvas id="grafikBatang"></canvas>
+    </div>
+
+    <button id="downloadPngButton">Download PNG</button>
+    <button id="downloadSvgButton">Download SVG</button>
+    <button id="downloadCsvButton">Download CSV</button>
+
+    <script src="assets/js/Chart.js"></script>
+    <script src="assets/js/Image.min.js"></script>
+    <script>
+        var ctx = document.getElementById('grafikBatang').getContext('2d');
+
+        var data = {
+            labels: ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
+            datasets: [
+                {
+                    label: 'MOU',
+                    data: [30, 45, 60, 40, 55],
+                    backgroundColor: 'red'
+                },
+                {
+                    label: 'MOA',
+                    data: [20, 35, 50, 30, 45],
+                    backgroundColor: 'green'
+                },
+                {
+                    label: 'AI',
+                    data: [10, 25, 40, 20, 35],
+                    backgroundColor: 'blue'
+                }
+            ]
+        };
+
+       
+
+
+        // berisi konfirmasinya
+        const grafik = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Grafik Distribusi Dokumen Kerjasama Per Tahun (5 Tahun Terakhir)'
+                    }
+                },
+               
+            },
+        });
+
+
+        // Fungsi untuk mengunduh gambar sebagai format tertentu
+        function downloadChart(format) {
+            if (format === 'svg') {
+                // Menggunakan dom-to-image untuk mengonversi canvas ke SVG
+                domtoimage.toSvg(document.getElementById('grafikBatang')).then(function (dataUrl) {
+                    // Membuat elemen <a> untuk mengeksekusi unduhan
+                    var link = document.createElement('a');
+                    link.href = dataUrl;
+                    link.download = 'grafik_batang.svg';
+
+                    // Menyembunyikan elemen <a> dan mengekliknya untuk memulai unduhan
+                    link.style.display = 'none';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            } else {
+                // Mendapatkan URL gambar dari elemen canvas
+                var url = document.getElementById('grafikBatang').toDataURL('image/' + format);
+
+                // Membuat elemen <a> untuk mengeksekusi unduhan
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = 'grafik_batang.' + format;
+
+                // Menyembunyikan elemen <a> dan mengekliknya untuk memulai unduhan
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        // Menambahkan event listener untuk tombol-tombol unduhan
+        document.getElementById('downloadPngButton').addEventListener('click', function () {
+            downloadChart('png');
+        });
+
+        document.getElementById('downloadSvgButton').addEventListener('click', function () {
+            downloadChart('svg');
+        });
+
+        document.getElementById('downloadCsvButton').addEventListener('click', function () {
+            downloadChart('csv');
+        });
+    </script>
+</body>
+
+</html>
