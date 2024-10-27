@@ -36,7 +36,9 @@
     <!-- chart -->
     <script src="assets/js/apexcharts.js"></script>
 
-
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="dist/css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -53,7 +55,7 @@
             </h1>
 
             <!-- .navbar -->
-            <nav id="navbar" class="navbar" >
+            <nav id="navbar" class="navbar">
                 <ul>
 
                     <li><a class="nav-link scrollto active" href="">MoU</a></li>
@@ -71,11 +73,11 @@
         </div>
     </header><!-- End Header -->
 
-    
 
 
-       <!-- halaman Statistik Dokumen Kerjasama -->
-       <section id="services" class="services section-bg mt-5">
+
+    <!-- halaman Statistik Dokumen Kerjasama -->
+    <section id="services" class="services section-bg mt-5">
         <div class="container text-center" data-aos="fade-up">
             <div class="section-title">
                 <h2>MOA (Memorandum of Agreements)</h2>
@@ -85,14 +87,66 @@
                     <div id="mou" style="width: 100%"></div>
                 </div>
             </div>
-           
+
+        </div>
+    </section>
+
+    <section id="services" class="services section-bg mt-3">
+        <div class="container " data-aos="fade-up">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Data Kerjasama
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple" class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>NO</th>
+                                <th>JUDUL KERJASAMA</th>
+                                <th>NOMOR SURAT</th>
+                                <th>TINGKAT KERJASAMA</th>
+                                <th>LEMBAGA</th>
+                                <th>TIPE PENGAJUAN</th>
+                                <th>TAHUN</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Kerjasama Fakultas Pariwisata dan Politeknik Negeri Jakarta tentang Penerimaan Mahasiswa Baru</td>
+                                <td>472/F.Par/UP/MOA/2023</td>
+                                <td>Nasional</td>
+                                <td>Fakultas Pariwisata</td>
+                                <td>MoA (Memorandum of Agreement) / Perjanjian Kerjasama</td>
+                                <td>2023</td>
+                                <td>
+                                    <form action="/detail">
+                                        <button class="btn btn-sm btn-info" >
+                                            <i class="fa fa-info-circle"></i> Detail
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                            <!-- Tambahkan baris lainnya jika diperlukan -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tambahkan ikon Font Awesome (jika belum ada) -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+                
+            </div>
+
         </div>
     </section>
 
 
 
-    
-    
+
+
+
 
 
 
@@ -104,10 +158,21 @@
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script> 
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+
+
+    <script src="admin  js/datatables-simple-demo.js"></script>
+    <script src="dist/js/datatables-simple-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <!-- <script src="dist/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="dist/assets/demo/chart-area-demo.js"></script>
+    <script src="dist/assets/demo/chart-bar-demo.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 
 
     <script>
@@ -117,7 +182,7 @@
                 name: 'Memorandum of Understanding (MOU)',
                 data: [44, 55, 57, 56, 61]
             }
-        ],
+            ],
             chart: {
                 type: 'bar',
                 height: 350
